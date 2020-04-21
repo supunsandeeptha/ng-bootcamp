@@ -1,0 +1,15 @@
+<h1>{{ title | uppercase }}</h1>
+<h2>{{ hero.name | lowercase }}</h2>
+
+{{ hero.salary | currency: "AUD" }}
+
+<img [src]="imgUrl" />
+<p>{{ hero.joiningDate | date }}</p>
+<button (click)="onClickHandler(hero)">Click Me</button>
+
+<input [(ngModel)]="hero.name" />
+
+<li *ngFor="let hero of heroes">{{ hero.name }}</li>
+<div [ngStyle]="currentStyles">
+  Hello World
+</div>
