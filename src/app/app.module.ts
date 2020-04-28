@@ -6,10 +6,11 @@ import { AppComponent } from "./app.component";
 import { HeroService } from "./hero/hero.service";
 import { HeroLogger } from "./hero/hero.logger";
 import { HeroListComponent } from './hero/hero-list/hero-list.component';
+import { HeroDetailComponent } from './hero/hero-detail/hero-detail.component';
 
 @NgModule({
   // All the components are added in declerations
-  declarations: [AppComponent, HeroComponent, HeroListComponent],
+  declarations: [AppComponent, HeroComponent, HeroListComponent, HeroDetailComponent],
   // all other module imports are included in imports
   imports: [BrowserModule, FormsModule],
   // dependencies are included in providers

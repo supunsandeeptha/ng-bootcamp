@@ -3,28 +3,7 @@ import { Hero } from "../hero";
 
 @Component({
   selector: "app-hero-list",
-  template: `
-    <div>
-      <p>hero-list works!</p>
-      <h1>{{ title }}</h1>
-      <h1>{{ myhero.name }}</h1>
-      <ul>
-        <li *ngFor="let hero of heroes">{{ hero.name }}</li>
-      </ul>
-      <p *ngIf="heroes.length > 3">There are more heroes</p>
-      <h1>{{ 1 + 1 }}</h1>
-      <img [src]="imgUrl" />
-      <button [style.color]="isActive ? 'blue' : 'red'">COLBUTTON</button>
-      <button class="btn" [class.btn-primary]="isPrimary" (click)="onSubmit()">
-        Submit
-      </button>
-      <p><input [(ngModel)]="name" /></p>
-      <p>{{ many.name | uppercase }}</p>
-      <p>{{ many.salary | currency: "AUD" }}</p>
-      <p>{{ many.rating | number }}</p>
-      <p>{{ many.date | date: "shortDate" }}</p>
-    </div>
-  `,
+  template: ` <app-hero-detail [hero]="hero"></app-hero-detail> `,
   styleUrls: ["./hero-list.component.css"],
 })
 export class HeroListComponent implements OnInit {
@@ -33,11 +12,17 @@ export class HeroListComponent implements OnInit {
   isActive = false;
   title: string;
   myhero: Hero;
-  heroes = [
-    new Hero(1, "supun"),
-    new Hero(2, "Ranindu"),
-    new Hero(3, "Sampath"),
-    new Hero(6, "Nilum"),
+  hero: Hero[] = [
+    {
+      id: 1,
+      rating: 3.5,
+      name: "supun",
+      salary: 5000,
+      joindate: new Date(),
+    },
+    { id: 2, rating: 4.5, name: "sandaru", salary: 6000, joindate: new Date() },
+    { id: 3, rating: 5.5, name: "rohan", salary: 5000, joindate: new Date() },
+    { id: 4, rating: 6.5, name: "rakitha", salary: 5000, joindate: new Date() },
   ];
 
   many = { salary: 5000, name: "supun", date: new Date(), rating: 12.2 };
@@ -48,7 +33,7 @@ export class HeroListComponent implements OnInit {
 
   constructor() {
     this.title = "supun";
-    this.myhero = this.heroes[0];
+    //  this.myhero = this.heroes[0];
   }
 
   onSubmit() {
